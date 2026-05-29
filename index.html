@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avogadro's Law | SCH3U Gas Laws</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero section">
+        <p class="eyebrow">SCH3U Gas Laws Project</p>
+        <h1>Avogadro's Law</h1>
+        <p class="hero-copy">
+          At constant temperature and pressure, the volume of a gas is directly
+          proportional to the number of moles of gas.
+        </p>
+      </section>
+
+      <section class="section formula-section" aria-labelledby="formula-title">
+        <div>
+          <p class="eyebrow">Core Relationship</p>
+          <h2 id="formula-title">What Changes, What Stays Controlled</h2>
+          <p>
+            Avogadro's Law compares volume, <strong>V</strong>, and amount of
+            gas, <strong>n</strong>. Temperature and pressure must be held
+            constant so the relationship stays scientifically meaningful.
+          </p>
+        </div>
+        <div class="formula-card" aria-label="Avogadro's Law formulas">
+          <span>V &prop; n</span>
+          <span>V / n = k</span>
+          <span>V<sub>1</sub> / n<sub>1</sub> = V<sub>2</sub> / n<sub>2</sub></span>
+        </div>
+      </section>
+
+      <section class="section simulation-section" aria-labelledby="simulation-title">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive Simulation</p>
+          <h2 id="simulation-title">Add Moles, Watch Volume Grow</h2>
+        </div>
+
+        <div class="card simulation-card">
+          <div class="sim-header">
+            <div>
+              <h3>Erlenmeyer Flask and Volume Graph</h3>
+            </div>
+            <span class="law-chip">V = n &times; 24.5 L</span>
+          </div>
+
+          <div class="simulation-panel">
+            <div class="simulation-visual">
+              <div class="container-stage" aria-hidden="true">
+                <div class="flask-scene" id="flaskScene">
+                  <div class="flask" id="flask">
+                    <div class="flask-interior" id="flaskInterior">
+                      <div class="gas-fill" id="gasFill"></div>
+                      <div class="particles" id="particles"></div>
+                    </div>
+                    <svg class="flask-glass" viewBox="0 0 260 320" focusable="false">
+                      <path
+                        class="flask-body"
+                        d="M105 24 H155 V112 L224 279 C231 297 219 307 199 307 H61 C41 307 29 297 36 279 L105 112 Z"
+                      />
+                      <path class="flask-mouth" d="M96 24 H164" />
+                      <path class="flask-neck" d="M105 112 H155" />
+                      <path class="flask-shine" d="M86 153 C64 204 51 252 56 276" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+            <div class="control-row">
+              <label for="molesSlider">Moles of gas, n</label>
+              <output id="molesOutput" for="molesSlider">1.0 mol</output>
+            </div>
+            <input
+              type="range"
+              id="molesSlider"
+              min="0.5"
+              max="5"
+              step="0.5"
+              value="1"
+            />
+
+            <div class="metric-grid" aria-live="polite">
+              <div class="metric">
+                <span>Current moles</span>
+                <strong id="currentMoles">1.0 mol</strong>
+              </div>
+              <div class="metric">
+                <span>Current volume</span>
+                <strong id="currentVolume">24.5 L</strong>
+              </div>
+              <div class="metric">
+                <span>Temperature</span>
+                <strong>298 K</strong>
+                <small>constant</small>
+              </div>
+              <div class="metric">
+                <span>Pressure</span>
+                <strong>1 atm</strong>
+                <small>constant</small>
+              </div>
+            </div>
+
+            <p class="relationship">
+              As moles increase, volume increases proportionally.
+            </p>
+            </div>
+
+            <div class="graph-card">
+            <h3>Moles vs. Volume</h3>
+            <div class="graph-wrap">
+              <svg
+                id="avogadroGraph"
+                viewBox="0 0 520 360"
+                role="img"
+                aria-labelledby="graphTitle graphDesc"
+              >
+                <title id="graphTitle">Avogadro's Law direct relationship graph</title>
+                <desc id="graphDesc">
+                  A straight-line graph showing volume increasing as moles increase.
+                </desc>
+                <line class="axis" x1="70" y1="300" x2="470" y2="300"></line>
+                <line class="axis" x1="70" y1="300" x2="70" y2="45"></line>
+                <text class="axis-label" x="270" y="345">moles of gas, n</text>
+                <text class="axis-label y-label" x="18" y="180">volume, V (L)</text>
+                <g id="graphTicks"></g>
+                <polyline id="graphLine" class="graph-line" points=""></polyline>
+                <g id="graphPoints"></g>
+                <circle id="currentGraphPoint" class="current-point" r="9"></circle>
+              </svg>
+            </div>
+            <p class="graph-caption">
+              Direct relationship: doubling moles doubles volume when
+              temperature and pressure stay constant.
+            </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card explanation-card">
+          <p>
+            Avogadro's Law works only when temperature and pressure are
+            controlled. In this simulation, temperature stays at 298 K and
+            pressure stays at 1 atm, so the only variable changing is the
+            amount of gas in moles. As more particles are added, the gas
+            occupies more volume.
+          </p>
+        </div>
+      </section>
+
+      <section class="section quiz-section" aria-labelledby="quiz-title">
+        <div class="section-heading">
+          <p class="eyebrow">Self-Quiz</p>
+          <h2 id="quiz-title">Check Your Avogadro Knowledge</h2>
+        </div>
+
+        <div class="quiz-shell card">
+          <div class="quiz-toolbar">
+            <div>
+              <span class="score-label" id="quizProgress">Question 1 of 6</span>
+              <strong id="scoreText">0 answered</strong>
+            </div>
+            <button class="button ghost-button" id="resetQuiz" type="button">Restart</button>
+          </div>
+
+          <div class="quiz-progress" aria-hidden="true">
+            <span id="quizProgressBar"></span>
+          </div>
+
+          <div class="quiz-carousel" aria-live="polite">
+            <div class="quiz-track" id="quizTrack"></div>
+          </div>
+
+          <div class="quiz-nav">
+            <button class="button" id="prevQuestion" type="button">Previous</button>
+            <button class="button" id="nextQuestion" type="button">Next</button>
+          </div>
+        </div>
+
+        <div class="results-screen card" id="resultsScreen" hidden>
+          <div>
+            <p class="eyebrow">Results</p>
+            <h3 id="finalScore">Final Score</h3>
+            <p id="finalPercent"></p>
+          </div>
+          <div class="results-list" id="resultsList"></div>
+          <button class="button" id="resetResults" type="button">Restart</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js?v=4"></script>
+  </body>
+</html>
