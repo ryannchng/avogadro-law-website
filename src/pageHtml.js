@@ -1,5 +1,40 @@
 import combiningVolumesImg from "../assets/combining-volumes.png";
 
+const moleculeToken = ({ label, name, formula, molarMass, composition }) =>
+  `<button class="chem-token molecule-token" type="button" data-name="${name}" data-formula="${formula}" data-molar-mass="${molarMass}" data-composition="${composition}" aria-label="${name}, formula ${formula}, molar mass ${molarMass}, composition ${composition}">${label}</button>`;
+
+const h2 = moleculeToken({
+  label: "H<sub>2</sub>",
+  name: "Hydrogen gas",
+  formula: "H\u2082",
+  molarMass: "2.016 g/mol",
+  composition: "2 hydrogen atoms",
+});
+
+const o2 = moleculeToken({
+  label: "O<sub>2</sub>",
+  name: "Oxygen gas",
+  formula: "O\u2082",
+  molarMass: "31.998 g/mol",
+  composition: "2 oxygen atoms",
+});
+
+const h2o = moleculeToken({
+  label: "H<sub>2</sub>O",
+  name: "Water / water vapor",
+  formula: "H\u2082O",
+  molarMass: "18.015 g/mol",
+  composition: "2 hydrogen atoms and 1 oxygen atom",
+});
+
+const co2 = moleculeToken({
+  label: "CO<sub>2</sub>",
+  name: "Carbon dioxide",
+  formula: "CO\u2082",
+  molarMass: "44.01 g/mol",
+  composition: "1 carbon atom and 2 oxygen atoms",
+});
+
 export const pageHtml = String.raw`
 <main class="page-shell">
       <section id="gay-lussac" class="section law-section" aria-labelledby="gay-lussac-title">
@@ -15,28 +50,28 @@ export const pageHtml = String.raw`
         <div class="card reaction-card">
           <div class="reaction-diagram" aria-label="Two volumes hydrogen plus one volume oxygen makes two volumes water vapor">
             <div class="reaction-block hydrogen">
-              <span>H<sub>2</sub></span>
+              <span>${h2}</span>
               <strong>2 volumes</strong>
             </div>
             <div class="reaction-symbol">+</div>
             <div class="reaction-block oxygen">
-              <span>O<sub>2</sub></span>
+              <span>${o2}</span>
               <strong>1 volume</strong>
             </div>
             <div class="reaction-symbol arrow">&rarr;</div>
             <div class="reaction-product">
               <div class="reaction-block water">
-                <span>H<sub>2</sub>O</span>
+                <span>${h2o}</span>
                 <strong>1 volume</strong>
               </div>
               <div class="reaction-block water">
-                <span>H<sub>2</sub>O</span>
+                <span>${h2o}</span>
                 <strong>1 volume</strong>
               </div>
             </div>
           </div>
           <div class="equation-strip">
-            <strong>2H<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2H<sub>2</sub>O(g)</strong>
+            <strong>2${h2}(g) + ${o2}(g) &rarr; 2${h2o}(g)</strong>
             <span>Ratio: 2 : 1 : 2</span>
           </div>
         </div>
@@ -64,7 +99,7 @@ export const pageHtml = String.raw`
           </p>
           <ul class="key-points">
             <li>Doubling the moles doubles the volume; halving the moles halves the volume</li>
-            <li>A "molecule" here means one gas particle — whether a single atom (like argon), a diatomic molecule (like H<sub>2</sub>), or larger. Only the count of particles matters, not how many atoms are inside each one</li>
+            <li>A "molecule" here means one gas particle — whether a single atom (like argon), a diatomic molecule (like ${h2}), or larger. Only the count of particles matters, not how many atoms are inside each one</li>
             <li>The type of gas is irrelevant, as long as it behaves ideally</li>
           </ul>
           <p class="plain-callout">
@@ -98,34 +133,50 @@ export const pageHtml = String.raw`
       </section>
 
       <section id="ratios" class="section combine-section" aria-labelledby="combine-title">
-        <div class="section-heading">
-          <p class="eyebrow">How They Combine</p>
-          <h2 id="combine-title">Volume Ratios = Mole Ratios</h2>
-          <p>Because equal volumes contain equal numbers of molecules, the whole-number volume ratios in Gay-Lussac's Law directly reflect the stoichiometric mole ratios in a balanced chemical equation.</p>
-        </div>
+        <div class="card combine-shell">
+          <div class="section-heading combine-heading">
+            <p class="eyebrow">Gas Reaction</p>
+            <h2 id="combine-title">Gas ratios work like volume ratios</h2>
+            <p>
+              Because equal volumes contain equal numbers of molecules, the
+              whole-number volume ratios in Gay-Lussac's Law directly reflect
+              the stoichiometric mole ratios in a balanced chemical equation.
+            </p>
+          </div>
 
-        <div class="card combine-main">
-          <p class="eyebrow">Gas Reaction</p>
-          <div class="chem-equation">2H<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2H<sub>2</sub>O(g)</div>
-          <p class="combine-lead">Those coefficients apply directly to volumes. If you have 4 litres of H<sub>2</sub>, you need only 2 litres of O<sub>2</sub> and you produce 4 litres of water vapor — the 2&thinsp;:&thinsp;1&thinsp;:&thinsp;2 ratio holds exactly.</p>
-          <div class="vol-example" aria-label="4 litres H2 plus 2 litres O2 yields 4 litres water vapor">
-            <div class="vol-box">
-              <strong>4 L</strong>
-              <span>H<sub>2</sub></span>
+          <div class="combine-unified">
+            <div class="combine-copy">
+              <p class="combine-kicker">The coefficients in a balanced gas equation also act as volume ratios when temperature and pressure stay constant.</p>
+              <p class="combine-lead">That means the numbers in the equation tell you both how many moles react and how many litres react, as long as everything is measured under the same conditions.</p>
+              <div class="combine-mass-note">
+                <p class="eyebrow">Extending to Mass</p>
+                <p>Those same coefficients also represent mole ratios. To turn that into mass, you still need molar mass, because different gases have different masses per mole even when their mole ratio matches the equation.</p>
+              </div>
             </div>
-            <span class="reaction-op" aria-hidden="true">+</span>
-            <div class="vol-box">
-              <strong>2 L</strong>
-              <span>O<sub>2</sub></span>
-            </div>
-            <span class="reaction-op" aria-hidden="true">&rarr;</span>
-            <div class="vol-box vol-box--product">
-              <strong>4 L</strong>
-              <span>H<sub>2</sub>O vapor</span>
+
+            <div class="combine-reaction-panel">
+              <div class="chem-equation">2${h2}(g) + ${o2}(g) &rarr; 2${h2o}(g)</div>
+              <p class="combine-equation-note">At constant temperature and pressure, the balanced equation and the gas volumes match directly.</p>
+              <div class="vol-example" aria-label="4 litres H2 plus 2 litres O2 yields 4 litres water vapor">
+                <div class="vol-box">
+                  <strong>4 L</strong>
+                  <span>${h2}</span>
+                </div>
+                <span class="reaction-op" aria-hidden="true">+</span>
+                <div class="vol-box">
+                  <strong>2 L</strong>
+                  <span>${o2}</span>
+                </div>
+                <span class="reaction-op" aria-hidden="true">&rarr;</span>
+                <div class="vol-box vol-box--product">
+                  <strong>4 L</strong>
+                  <span>${h2o} vapor</span>
+                </div>
+              </div>
+              <p class="combine-ratio-note">The ratio stays locked at <strong>2 : 1 : 2</strong>.</p>
             </div>
           </div>
         </div>
-
       </section>
 
       <section id="variables" class="section" aria-labelledby="variables-title">
@@ -170,15 +221,15 @@ export const pageHtml = String.raw`
           <dl>
             <div>
               <dt>Start with</dt>
-              <dd>4 L H<sub>2</sub></dd>
+              <dd>4 L ${h2}</dd>
             </div>
             <div>
               <dt>You need</dt>
-              <dd>2 L O<sub>2</sub></dd>
+              <dd>2 L ${o2}</dd>
             </div>
             <div>
               <dt>You produce</dt>
-              <dd>4 L H<sub>2</sub>O vapor</dd>
+              <dd>4 L ${h2o} vapor</dd>
             </div>
           </dl>
           <p>The ratio still stays <strong>2 : 1 : 2</strong>.</p>
@@ -202,23 +253,23 @@ export const pageHtml = String.raw`
             <h3>Equal volume = equal number of particles</h3>
             <div class="balloon-row" aria-label="Equal volume gas balloons at STP">
               <div class="balloon">
-                <span>H<sub>2</sub></span>
+                <span>${h2}</span>
                 <small>1 mol<br />22.4 L</small>
               </div>
               <div class="balloon">
-                <span>O<sub>2</sub></span>
+                <span>${o2}</span>
                 <small>1 mol<br />22.4 L</small>
               </div>
               <div class="balloon">
-                <span>CO<sub>2</sub></span>
+                <span>${co2}</span>
                 <small>1 mol<br />22.4 L</small>
               </div>
             </div>
             <p>
               The gas type does not matter as long as the gas behaves ideally.
               A "molecule" here means one gas particle: a single atom like
-              argon, a diatomic molecule like H<sub>2</sub> or O<sub>2</sub>,
-              or a larger molecule like CO<sub>2</sub>.
+              argon, a diatomic molecule like ${h2} or ${o2},
+              or a larger molecule like ${co2}.
             </p>
           </div>
           <div class="card jug-card">
