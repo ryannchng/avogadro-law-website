@@ -252,6 +252,10 @@ p {
   align-items: stretch;
 }
 
+.formula-section > div > .eyebrow {
+  font-size: 1.1rem;
+}
+
 .formula-card,
 .card {
   border-radius: 8px;
@@ -753,13 +757,18 @@ p {
 
 .sim-header {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   align-items: flex-start;
   justify-content: space-between;
 }
 
+.sim-header > div {
+  flex: 1 1 420px;
+}
+
 .sim-header h2 {
-  max-width: 720px;
+  max-width: 900px;
   margin-bottom: 8px;
   font-size: clamp(2rem, 4vw, 3.25rem);
 }
