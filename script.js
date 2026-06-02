@@ -27,6 +27,8 @@ const finalPercent = document.querySelector("#finalPercent");
 const resultsList = document.querySelector("#resultsList");
 
 const molarVolume = 24.5;
+const particlesPerMole = 12;
+const fillPercentPerMole = 16.8;
 const graphData = [
   { moles: 0.5, volume: 12.25 },
   { moles: 1.0, volume: 24.5 },
@@ -280,7 +282,9 @@ function createGasParticle(index) {
 }
 
 function updateParticleCount(moles) {
-  const targetCount = 12 + Math.round(moles * 10);
+  // Particles represent gas molecules, so the count is directly proportional to
+  // moles (no offset) — doubling moles doubles the particles, like the law states.
+  const targetCount = Math.round(moles * particlesPerMole);
 
   while (gasParticles.length < targetCount) {
     gasParticles.push(createGasParticle(gasParticles.length));
@@ -478,7 +482,9 @@ function setupFlaskDrag() {
 function updateSimulation() {
   const moles = Number(slider.value);
   const volume = moles * molarVolume;
-  const fillPercent = 18 + ((moles - 0.5) / 4.5) * 66;
+  // Fill level tracks volume, which is proportional to moles, so it also passes
+  // through the origin (0 mol = empty) rather than starting at a fixed offset.
+  const fillPercent = moles * fillPercentPerMole;
   const graphPosition = getGraphPosition(moles, volume);
 
   molesOutput.textContent = formatMoles(moles);
