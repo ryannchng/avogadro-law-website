@@ -135,6 +135,7 @@ let showingResults = false;
 let gasParticles = [];
 let particleAnimationId;
 let lastParticleFrame = performance.now();
+let gasParticlesVisible = true;
 let flaskOffset = { x: 0, y: 0 };
 let flaskVelocity = { x: 0, y: 0 };
 let dragState = {
@@ -292,6 +293,11 @@ function nudgeParticles(velocityX, velocityY) {
 }
 
 function animateGasParticles(time = performance.now()) {
+  if (!gasParticlesVisible) {
+    particleAnimationId = null;
+    return;
+  }
+
   const rect = flaskInterior.getBoundingClientRect();
   const width = rect.width || 260;
   const height = rect.height || 320;
@@ -337,6 +343,45 @@ function animateGasParticles(time = performance.now()) {
   });
 
   particleAnimationId = window.requestAnimationFrame(animateGasParticles);
+}
+
+function startGasParticleAnimation() {
+  if (particleAnimationId) return;
+
+  gasParticlesVisible = true;
+  lastParticleFrame = performance.now();
+  particleAnimationId = window.requestAnimationFrame(animateGasParticles);
+}
+
+function stopGasParticleAnimation() {
+  gasParticlesVisible = false;
+
+  if (particleAnimationId) {
+    window.cancelAnimationFrame(particleAnimationId);
+    particleAnimationId = null;
+  }
+}
+
+function setupParticleVisibility() {
+  const simulationSection = document.querySelector(".simulation-section");
+
+  if (!simulationSection || !("IntersectionObserver" in window)) {
+    startGasParticleAnimation();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        startGasParticleAnimation();
+      } else {
+        stopGasParticleAnimation();
+      }
+    },
+    { rootMargin: "160px 0px", threshold: 0.01 },
+  );
+
+  observer.observe(simulationSection);
 }
 
 function updateFlaskTransform(rotation = 0) {
@@ -587,4 +632,4 @@ drawGraph();
 setupFlaskDrag();
 updateSimulation();
 renderQuiz();
-particleAnimationId = window.requestAnimationFrame(animateGasParticles);
+setupParticleVisibility();

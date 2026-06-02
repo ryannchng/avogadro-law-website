@@ -21,8 +21,11 @@ export function Component({ children, className = "" }) {
       powerPreference: "high-performance",
     });
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    let isVisible = true;
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.35);
+
+    renderer.setSize(window.innerWidth, window.innerHeight, false);
+    renderer.setPixelRatio(pixelRatio);
     mountRef.current.appendChild(renderer.domElement);
 
     const vertexShader = `
@@ -237,25 +240,60 @@ export function Component({ children, className = "" }) {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(width, height, false);
+      renderer.setPixelRatio(pixelRatio);
       material.uniforms.u_resolution.value.set(width, height);
     };
 
     const animate = () => {
+      if (!isVisible) {
+        frameRef.current = null;
+        return;
+      }
+
       timeRef.current += prefersReducedMotion ? 0 : 0.008;
       material.uniforms.u_time.value = timeRef.current;
       renderer.render(scene, camera);
       frameRef.current = requestAnimationFrame(animate);
     };
 
+    const startAnimation = () => {
+      if (!frameRef.current) {
+        frameRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    const stopAnimation = () => {
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+
+        if (isVisible) {
+          timeline?.resume();
+          startAnimation();
+        } else {
+          timeline?.pause();
+          stopAnimation();
+        }
+      },
+      { threshold: 0.01 },
+    );
+
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    animate();
+    observer.observe(mountRef.current);
+    startAnimation();
 
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
+      observer.disconnect();
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
       timeline?.kill();
       renderer.dispose();
