@@ -9,8 +9,25 @@ export default function App() {
 
   return (
     <>
+      <nav className="site-nav" aria-label="Website sections">
+        <a className="site-nav__brand" href="#top">Avogadro</a>
+        <div className="site-nav__links">
+          <a href="#top">Home</a>
+          <a href="#core">Core</a>
+          <a href="#laws">Laws</a>
+          <a href="#ratios">Ratios</a>
+          <a href="#variables">Variables</a>
+          <a href="#gay-lussac">Gay-Lussac</a>
+          <a href="#connection">Connection</a>
+          <a href="#stp">STP</a>
+          <a href="#demo">Demo</a>
+          <a href="#uses">Uses</a>
+          <a href="#history">History</a>
+          <a href="#quiz">Quiz</a>
+        </div>
+      </nav>
       <TurbulentFlow className="landing-hero">
-        <div className="landing-hero__copy">
+        <div id="top" className="landing-hero__copy">
           <p className="eyebrow">SCH3U Gas Laws Project</p>
           <h1>Avogadro&apos;s Law</h1>
           <p className="hero-copy">

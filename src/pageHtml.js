@@ -1,6 +1,6 @@
 export const pageHtml = String.raw`
 <main class="page-shell">
-      <section class="section formula-section" aria-labelledby="formula-title">
+      <section id="core" class="section formula-section" aria-labelledby="formula-title">
         <div>
           <p class="eyebrow">Core Relationship</p>
           <h2 id="formula-title">What changes, what stays controlled</h2>
@@ -21,7 +21,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section laws-section" aria-labelledby="laws-title">
+      <section id="laws" class="section laws-section" aria-labelledby="laws-title">
         <div class="section-heading">
           <p class="eyebrow">Historical Context &amp; Theory</p>
           <h2 id="laws-title">The Laws Behind the Law</h2>
@@ -78,7 +78,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section combine-section" aria-labelledby="combine-title">
+      <section id="ratios" class="section combine-section" aria-labelledby="combine-title">
         <div class="section-heading">
           <p class="eyebrow">How They Combine</p>
           <h2 id="combine-title">Volume Ratios = Mole Ratios</h2>
@@ -120,7 +120,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section content-grid" aria-labelledby="variables-title">
+      <section id="variables" class="section content-grid" aria-labelledby="variables-title">
         <div class="card variable-card">
           <p class="eyebrow">Gas Variables</p>
           <h2 id="variables-title">The four gas variables</h2>
@@ -142,7 +142,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section law-section" aria-labelledby="gay-lussac-title">
+      <section id="gay-lussac" class="section law-section" aria-labelledby="gay-lussac-title">
         <div class="section-heading">
           <p class="eyebrow">Gay-Lussac's Law</p>
           <h2 id="gay-lussac-title">Gases combine in simple volume ratios</h2>
@@ -182,7 +182,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section content-grid" aria-labelledby="connection-title">
+      <section id="connection" class="section content-grid" aria-labelledby="connection-title">
         <div class="card explanation-card">
           <p class="eyebrow">How They Connect</p>
           <h2 id="connection-title">Avogadro explains Gay-Lussac</h2>
@@ -217,7 +217,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section stp-section" aria-labelledby="stp-title">
+      <section id="stp" class="section stp-section" aria-labelledby="stp-title">
         <div class="section-heading">
           <p class="eyebrow">Molar Volume at STP</p>
           <h2 id="stp-title">One mole takes about 22.4 L at STP</h2>
@@ -269,7 +269,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section simulation-section" aria-labelledby="simulation-title">
+      <section id="demo" class="section simulation-section" aria-labelledby="simulation-title">
         <div class="card simulation-card">
           <div class="sim-header">
             <div>
@@ -381,7 +381,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section uses-section" aria-labelledby="uses-title">
+      <section id="uses" class="section uses-section" aria-labelledby="uses-title">
         <div class="section-heading">
           <p class="eyebrow">Real-World Uses</p>
           <h2 id="uses-title">Why this matters</h2>
@@ -420,7 +420,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section history-section" aria-labelledby="history-title">
+      <section id="history" class="section history-section" aria-labelledby="history-title">
         <div class="card history-card">
           <p class="eyebrow">Cool Facts</p>
           <h2 id="history-title">Avogadro's idea took time to catch on</h2>
@@ -441,7 +441,7 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section class="section quiz-section" aria-labelledby="quiz-title">
+      <section id="quiz" class="section quiz-section" aria-labelledby="quiz-title">
         <div class="section-heading">
           <p class="eyebrow">Self-Quiz</p>
           <h2 id="quiz-title">Check your gas laws knowledge</h2>

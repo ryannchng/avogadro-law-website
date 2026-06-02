@@ -172,12 +172,12 @@ export function Component({ children, className = "" }) {
         float grad3 = 1.0 - smoothstep(0.0, 0.55 - turb3 * 0.18, dist3);
         float grad4 = 1.0 - smoothstep(0.0, 0.45 - turb1 * 0.12, dist4);
 
-        vec3 color1 = vec3(0.09, 0.82, 0.72);
-        vec3 color2 = vec3(0.18, 0.42, 0.85);
-        vec3 color3 = vec3(0.11, 0.62, 0.42);
-        vec3 color4 = vec3(0.02, 0.22, 0.26);
-        vec3 color5 = vec3(0.46, 0.86, 0.73);
-        vec3 finalColor = vec3(0.015, 0.02, 0.028);
+        vec3 color1 = vec3(0.82);
+        vec3 color2 = vec3(0.48);
+        vec3 color3 = vec3(0.34);
+        vec3 color4 = vec3(0.12);
+        vec3 color5 = vec3(0.92);
+        vec3 finalColor = vec3(0.012);
 
         finalColor += color1 * grad1 * (0.9 + turb1 * 0.3);
         finalColor += color2 * grad2 * (0.42 + turb2 * 0.25);
