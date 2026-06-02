@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avogadro's Law | SCH3U Gas Laws</title>
+    <title>Avogadro's Law and Combining Volumes | SCH3U Gas Laws</title>
+    <meta
+      name="description"
+      content="A student-friendly guide to Avogadro's Law, Gay-Lussac's Law of Combining Volumes, molar volume at STP, gas variables, and real-world uses."
+    />
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -13,19 +17,24 @@
         <p class="eyebrow">SCH3U Gas Laws Project</p>
         <h1>Avogadro's Law</h1>
         <p class="hero-copy">
-          At constant temperature and pressure, the volume of a gas is directly
-          proportional to the number of moles of gas.
+          Gas volume follows particle count. When temperature and pressure stay
+          constant, more moles means more volume, and fewer moles means less
+          volume.
         </p>
       </section>
 
       <section class="section formula-section" aria-labelledby="formula-title">
         <div>
           <p class="eyebrow">Core Relationship</p>
-          <h2 id="formula-title">What Changes, What Stays Controlled</h2>
+          <h2 id="formula-title">What changes, what stays controlled</h2>
           <p>
             Avogadro's Law compares volume, <strong>V</strong>, and amount of
             gas, <strong>n</strong>. Temperature and pressure must be held
             constant so the relationship stays scientifically meaningful.
+          </p>
+          <p class="plain-callout">
+            Core idea: <strong>more moles = more volume</strong>.
+            <strong>Fewer moles = less volume</strong>.
           </p>
         </div>
         <div class="formula-card" aria-label="Avogadro's Law formulas">
@@ -134,18 +143,167 @@
         </div>
       </section>
 
-      <section class="section simulation-section" aria-labelledby="simulation-title">
+      <section class="section content-grid" aria-labelledby="variables-title">
+        <div class="card variable-card">
+          <p class="eyebrow">Gas Variables</p>
+          <h2 id="variables-title">The four gas variables</h2>
+          <div class="variable-grid" aria-label="Four gas variables">
+            <div><strong>P</strong><span>pressure</span></div>
+            <div><strong>V</strong><span>volume</span></div>
+            <div><strong>T</strong><span>temperature</span></div>
+            <div><strong>n</strong><span>amount of gas in moles</span></div>
+          </div>
+        </div>
+        <div class="card explanation-card compact-card">
+          <h3>Why lowercase n matters</h3>
+          <p>
+            In gas laws, <strong>n</strong> is the standard symbol for moles.
+            Avogadro's Law focuses on the V-n relationship while P and T stay
+            constant. Combining gas volumes also assumes constant temperature
+            and pressure.
+          </p>
+        </div>
+      </section>
+
+      <section class="section law-section" aria-labelledby="gay-lussac-title">
         <div class="section-heading">
-          <p class="eyebrow">Interactive Simulation</p>
-          <h2 id="simulation-title">Add Moles, Watch Volume Grow</h2>
+          <p class="eyebrow">Gay-Lussac's Law</p>
+          <h2 id="gay-lussac-title">Gases combine in simple volume ratios</h2>
+          <p>
+            When gases react at constant temperature and pressure, their volumes
+            react in simple whole-number ratios.
+          </p>
         </div>
 
+        <div class="card reaction-card">
+          <div class="reaction-diagram" aria-label="Two volumes hydrogen plus one volume oxygen makes two volumes water vapor">
+            <div class="reaction-block hydrogen">
+              <span>H<sub>2</sub></span>
+              <strong>2 volumes</strong>
+            </div>
+            <div class="reaction-symbol">+</div>
+            <div class="reaction-block oxygen">
+              <span>O<sub>2</sub></span>
+              <strong>1 volume</strong>
+            </div>
+            <div class="reaction-symbol arrow">&rarr;</div>
+            <div class="reaction-product">
+              <div class="reaction-block water">
+                <span>H<sub>2</sub>O</span>
+                <strong>1 volume</strong>
+              </div>
+              <div class="reaction-block water">
+                <span>H<sub>2</sub>O</span>
+                <strong>1 volume</strong>
+              </div>
+            </div>
+          </div>
+          <div class="equation-strip">
+            <strong>2H<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2H<sub>2</sub>O(g)</strong>
+            <span>Ratio: 2 : 1 : 2</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section content-grid" aria-labelledby="connection-title">
+        <div class="card explanation-card">
+          <p class="eyebrow">How They Connect</p>
+          <h2 id="connection-title">Avogadro explains Gay-Lussac</h2>
+          <p>
+            Avogadro's Law says equal gas volumes contain equal numbers of
+            particles at the same temperature and pressure. That explains why
+            gas volume ratios match the mole ratios in balanced chemical
+            equations.
+          </p>
+          <p>
+            For the water vapor reaction, the 2:1:2 ratio works for particles,
+            moles, and gas volumes.
+          </p>
+        </div>
+        <div class="card example-card">
+          <h3>Scale the ratio</h3>
+          <dl>
+            <div>
+              <dt>Start with</dt>
+              <dd>4 L H<sub>2</sub></dd>
+            </div>
+            <div>
+              <dt>You need</dt>
+              <dd>2 L O<sub>2</sub></dd>
+            </div>
+            <div>
+              <dt>You produce</dt>
+              <dd>4 L H<sub>2</sub>O vapor</dd>
+            </div>
+          </dl>
+          <p>The ratio still stays <strong>2 : 1 : 2</strong>.</p>
+        </div>
+      </section>
+
+      <section class="section stp-section" aria-labelledby="stp-title">
+        <div class="section-heading">
+          <p class="eyebrow">Molar Volume at STP</p>
+          <h2 id="stp-title">One mole takes about 22.4 L at STP</h2>
+          <p>
+            At STP, which means <strong>0&deg;C and 1 atm</strong>, 1 mole of
+            an ideal gas takes up <strong>approximately 22.4 L</strong>. Real
+            gases can deviate slightly from ideal behavior, so 22.4 L is a very
+            useful approximation, not an exact rule for every situation.
+          </p>
+        </div>
+
+        <div class="stp-grid">
+          <div class="card equal-volume-card">
+            <h3>Equal volume = equal number of particles</h3>
+            <div class="balloon-row" aria-label="Equal volume gas balloons at STP">
+              <div class="balloon">
+                <span>H<sub>2</sub></span>
+                <small>1 mol<br />22.4 L</small>
+              </div>
+              <div class="balloon">
+                <span>O<sub>2</sub></span>
+                <small>1 mol<br />22.4 L</small>
+              </div>
+              <div class="balloon">
+                <span>CO<sub>2</sub></span>
+                <small>1 mol<br />22.4 L</small>
+              </div>
+            </div>
+            <p>
+              The gas type does not matter as long as the gas behaves ideally.
+              A "molecule" here means one gas particle: a single atom like
+              argon, a diatomic molecule like H<sub>2</sub> or O<sub>2</sub>,
+              or a larger molecule like CO<sub>2</sub>.
+            </p>
+          </div>
+          <div class="card jug-card">
+            <div class="jug-visual" aria-hidden="true">
+              <div class="jug-cap"></div>
+              <div class="jug-body">
+                <span>22.4 L</span>
+              </div>
+            </div>
+            <h3>How big is 22.4 L?</h3>
+            <p>
+              It is around the size of a large water jug or an inflated beach
+              ball. That much space holds about 1 mole of an ideal gas at STP.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section simulation-section" aria-labelledby="simulation-title">
         <div class="card simulation-card">
           <div class="sim-header">
             <div>
-              <h3>Erlenmeyer Flask and Volume Graph</h3>
+              <p class="eyebrow">Interactive Simulation</p>
+              <h2 id="simulation-title">Interactive Avogadro's Law Demo</h2>
+              <p class="sim-subtitle">
+                Change the amount of gas and watch volume increase while
+                temperature and pressure stay constant.
+              </p>
             </div>
-            <span class="law-chip">V = n &times; 24.5 L</span>
+            <span class="law-chip">V = n &times; 24.5 L at 298 K</span>
           </div>
 
           <div class="simulation-panel">
@@ -169,7 +327,38 @@
                   </div>
                 </div>
               </div>
+            </div>
 
+            <div class="graph-card">
+              <h3>Moles vs. Volume</h3>
+              <div class="graph-wrap">
+                <svg
+                  id="avogadroGraph"
+                  viewBox="0 0 520 360"
+                  role="img"
+                  aria-labelledby="graphTitle graphDesc"
+                >
+                  <title id="graphTitle">Avogadro's Law direct relationship graph</title>
+                  <desc id="graphDesc">
+                    A straight-line graph showing volume increasing as moles increase.
+                  </desc>
+                  <line class="axis" x1="70" y1="300" x2="470" y2="300"></line>
+                  <line class="axis" x1="70" y1="300" x2="70" y2="45"></line>
+                  <text class="axis-label" x="270" y="345">moles of gas, n</text>
+                  <text class="axis-label y-label" x="18" y="180">volume, V (L)</text>
+                  <g id="graphTicks"></g>
+                  <polyline id="graphLine" class="graph-line" points=""></polyline>
+                  <g id="graphPoints"></g>
+                  <circle id="currentGraphPoint" class="current-point" r="9"></circle>
+                </svg>
+              </div>
+              <p class="graph-caption">
+                A straight line shows that V and n increase together.
+              </p>
+            </div>
+          </div>
+
+          <div class="demo-control-panel">
             <div class="control-row">
               <label for="molesSlider">Moles of gas, n</label>
               <output id="molesOutput" for="molesSlider">1.0 mol</output>
@@ -182,85 +371,109 @@
               step="0.5"
               value="1"
             />
+          </div>
 
-            <div class="metric-grid" aria-live="polite">
-              <div class="metric">
-                <span>Current moles</span>
-                <strong id="currentMoles">1.0 mol</strong>
-              </div>
-              <div class="metric">
-                <span>Current volume</span>
-                <strong id="currentVolume">24.5 L</strong>
-              </div>
-              <div class="metric">
-                <span>Temperature</span>
-                <strong>298 K</strong>
-                <small>constant</small>
-              </div>
-              <div class="metric">
-                <span>Pressure</span>
-                <strong>1 atm</strong>
-                <small>constant</small>
-              </div>
+          <div class="metric-grid" aria-live="polite">
+            <div class="metric">
+              <span>n = current moles</span>
+              <strong id="currentMoles">1.0 mol</strong>
             </div>
-
-            <p class="relationship">
-              As moles increase, volume increases proportionally.
-            </p>
+            <div class="metric">
+              <span>V = current volume</span>
+              <strong id="currentVolume">24.5 L</strong>
             </div>
-
-            <div class="graph-card">
-            <h3>Moles vs. Volume</h3>
-            <div class="graph-wrap">
-              <svg
-                id="avogadroGraph"
-                viewBox="0 0 520 360"
-                role="img"
-                aria-labelledby="graphTitle graphDesc"
-              >
-                <title id="graphTitle">Avogadro's Law direct relationship graph</title>
-                <desc id="graphDesc">
-                  A straight-line graph showing volume increasing as moles increase.
-                </desc>
-                <line class="axis" x1="70" y1="300" x2="470" y2="300"></line>
-                <line class="axis" x1="70" y1="300" x2="70" y2="45"></line>
-                <text class="axis-label" x="270" y="345">moles of gas, n</text>
-                <text class="axis-label y-label" x="18" y="180">volume, V (L)</text>
-                <g id="graphTicks"></g>
-                <polyline id="graphLine" class="graph-line" points=""></polyline>
-                <g id="graphPoints"></g>
-                <circle id="currentGraphPoint" class="current-point" r="9"></circle>
-              </svg>
+            <div class="metric">
+              <span>T = temperature</span>
+              <strong>298 K</strong>
+              <small>constant</small>
             </div>
-            <p class="graph-caption">
-              Direct relationship: doubling moles doubles volume when
-              temperature and pressure stay constant.
-            </p>
+            <div class="metric">
+              <span>P = pressure</span>
+              <strong>1 atm</strong>
+              <small>constant</small>
             </div>
           </div>
+
+          <div class="demo-takeaway">
+            <p>
+              At constant temperature and pressure, volume is directly
+              proportional to the amount of gas.
+            </p>
+            <strong>More moles &rarr; more particles &rarr; more volume.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section uses-section" aria-labelledby="uses-title">
+        <div class="section-heading">
+          <p class="eyebrow">Real-World Uses</p>
+          <h2 id="uses-title">Why this matters</h2>
+          <p>
+            Gas volume and mole relationships help people design systems that
+            need gases to behave predictably and safely.
+          </p>
         </div>
 
-        <div class="card explanation-card">
-          <p>
-            Avogadro's Law works only when temperature and pressure are
-            controlled. In this simulation, temperature stays at 298 K and
-            pressure stays at 1 atm, so the only variable changing is the
-            amount of gas in moles. As more particles are added, the gas
-            occupies more volume.
-          </p>
+        <div class="uses-grid">
+          <article class="card use-card">
+            <span class="use-icon">01</span>
+            <h3>Airbags</h3>
+            <p>
+              When sodium azide decomposes during a crash, it rapidly produces
+              nitrogen gas. Engineers calculate the amount of gas needed to
+              inflate the airbag safely.
+            </p>
+          </article>
+          <article class="card use-card">
+            <span class="use-icon">02</span>
+            <h3>Anesthesia</h3>
+            <p>
+              Hospitals use gas volume and mole relationships to deliver
+              controlled gas mixtures and doses.
+            </p>
+          </article>
+          <article class="card use-card">
+            <span class="use-icon">03</span>
+            <h3>Scuba tanks</h3>
+            <p>
+              Tank pressure relates to how many moles of gas are stored, which
+              helps divers estimate how much breathing gas they have.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section history-section" aria-labelledby="history-title">
+        <div class="card history-card">
+          <p class="eyebrow">Cool Facts</p>
+          <h2 id="history-title">Avogadro's idea took time to catch on</h2>
+          <div class="fact-list">
+            <p>
+              Avogadro's ideas helped explain why gases combine in
+              whole-number volume ratios.
+            </p>
+            <p>
+              His work supported the idea that gases like hydrogen and oxygen
+              exist as diatomic molecules, H<sub>2</sub> and O<sub>2</sub>.
+            </p>
+            <p>
+              His work was not widely recognized during his lifetime, but it
+              became very important later.
+            </p>
+          </div>
         </div>
       </section>
 
       <section class="section quiz-section" aria-labelledby="quiz-title">
         <div class="section-heading">
           <p class="eyebrow">Self-Quiz</p>
-          <h2 id="quiz-title">Check Your Avogadro Knowledge</h2>
+          <h2 id="quiz-title">Check your gas laws knowledge</h2>
         </div>
 
         <div class="quiz-shell card">
           <div class="quiz-toolbar">
             <div>
-              <span class="score-label" id="quizProgress">Question 1 of 6</span>
+              <span class="score-label" id="quizProgress">Question 1 of 9</span>
               <strong id="scoreText">0 answered</strong>
             </div>
             <button class="button ghost-button" id="resetQuiz" type="button">Restart</button>
