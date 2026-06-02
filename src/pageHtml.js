@@ -1,15 +1,5 @@
 export const pageHtml = String.raw`
 <main class="page-shell">
-      <section class="hero section">
-        <p class="eyebrow">SCH3U Gas Laws Project</p>
-        <h1>Avogadro's Law</h1>
-        <p class="hero-copy">
-          Gas volume follows particle count. When temperature and pressure stay
-          constant, more moles means more volume, and fewer moles means less
-          volume.
-        </p>
-      </section>
-
       <section class="section formula-section" aria-labelledby="formula-title">
         <div>
           <p class="eyebrow">Core Relationship</p>

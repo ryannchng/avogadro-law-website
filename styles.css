@@ -31,6 +31,54 @@ body {
     sans-serif;
 }
 
+.turbulent-flow {
+  position: relative;
+  min-height: 88vh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #080b12;
+}
+
+.turbulent-flow__canvas,
+.turbulent-flow__shade {
+  position: absolute;
+  inset: 0;
+}
+
+.turbulent-flow__canvas {
+  z-index: -2;
+}
+
+.turbulent-flow__canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.turbulent-flow__shade {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(8, 11, 18, 0.96) 0%, rgba(8, 11, 18, 0.74) 48%, rgba(8, 11, 18, 0.5) 100%),
+    linear-gradient(180deg, transparent 70%, #080b12 100%);
+}
+
+.turbulent-flow__content {
+  width: min(1160px, calc(100% - 32px));
+  min-height: inherit;
+  display: grid;
+  align-content: center;
+  margin: 0 auto;
+  padding: 72px 0 96px;
+}
+
+.landing-hero {
+  margin-bottom: 0;
+}
+
+.landing-hero__copy {
+  max-width: 920px;
+}
+
 button,
 input {
   font: inherit;
