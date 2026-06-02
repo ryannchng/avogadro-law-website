@@ -62,9 +62,27 @@ export const pageHtml = String.raw`
           </p>
         </div>
         <div class="formula-card" aria-label="Avogadro's Law formulas">
-          <span>V &prop; n</span>
-          <span>V / n = k</span>
-          <span>V<sub>1</sub> / n<sub>1</sub> = V<sub>2</sub> / n<sub>2</sub></span>
+          <div class="formula-row" role="group" aria-label="Volume is proportional to moles">
+            <button class="formula-token" type="button" data-tooltip="Volume of the gas">V</button>
+            <button class="formula-token formula-token--symbol" type="button" data-tooltip="Is proportional to">&prop;</button>
+            <button class="formula-token" type="button" data-tooltip="Number of moles of gas">n</button>
+          </div>
+          <div class="formula-row" role="group" aria-label="Volume divided by moles equals a constant">
+            <button class="formula-token" type="button" data-tooltip="Volume of the gas">V</button>
+            <button class="formula-token formula-token--symbol" type="button" data-tooltip="Divided by">/</button>
+            <button class="formula-token" type="button" data-tooltip="Number of moles of gas">n</button>
+            <button class="formula-token formula-token--symbol" type="button" data-tooltip="Shows the relationship stays equal">=</button>
+            <button class="formula-token" type="button" data-tooltip="Constant value when temperature and pressure stay the same">k</button>
+          </div>
+          <div class="formula-row" role="group" aria-label="Initial and final volume to mole ratios stay equal">
+            <button class="formula-token" type="button" data-tooltip="Initial volume">V<sub>1</sub></button>
+            <button class="formula-token formula-token--symbol" type="button" data-tooltip="Divided by">/</button>
+            <button class="formula-token" type="button" data-tooltip="Initial number of moles">n<sub>1</sub></button>
+            <button class="formula-token formula-token--symbol" type="button" data-tooltip="The ratio stays constant">=</button>
+            <button class="formula-token" type="button" data-tooltip="Final volume">V<sub>2</sub></button>
+            <button class="formula-token formula-token--symbol" type="button" data-tooltip="Divided by">/</button>
+            <button class="formula-token" type="button" data-tooltip="Final number of moles">n<sub>2</sub></button>
+          </div>
         </div>
       </section>
 

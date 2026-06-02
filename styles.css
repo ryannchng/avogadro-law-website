@@ -262,19 +262,117 @@ p {
 
 .formula-card {
   display: grid;
-  gap: 12px;
-  padding: 24px;
+  align-content: center;
+  gap: 26px;
+  min-height: 100%;
+  padding: 24px 8px;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
-.formula-card span {
-  display: block;
-  padding: 16px 18px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.035);
+.formula-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 96px;
+}
+
+.formula-token {
+  position: relative;
+  appearance: none;
+  border: 0;
+  padding: 4px 6px;
+  background: transparent;
   color: var(--text);
-  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
+  line-height: 0.95;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.formula-token sub {
+  font-size: 0.42em;
+  vertical-align: sub;
+}
+
+.formula-token--symbol {
+  font-weight: 500;
+}
+
+.formula-token::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  width: max-content;
+  max-width: 220px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(18, 18, 18, 0.96);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
   text-align: center;
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 5;
+}
+
+.formula-token::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  width: 10px;
+  height: 10px;
+  background: rgba(18, 18, 18, 0.96);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) rotate(45deg);
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 4;
+}
+
+.formula-token:hover,
+.formula-token:focus-visible {
+  color: #ffffff;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.24);
+  transform: translateY(-1px);
+}
+
+.formula-token:hover::after,
+.formula-token:hover::before,
+.formula-token:focus-visible::after,
+.formula-token:focus-visible::before {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.formula-token:focus-visible::before {
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.formula-token:focus-visible {
+  outline: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.formula-token:active {
+  transform: translateY(0);
 }
 
 .plain-callout {
@@ -1583,6 +1681,22 @@ svg {
   .balloon {
     min-height: 170px;
     border-radius: 8px;
+  }
+
+  .formula-card {
+    gap: 20px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .formula-row {
+    gap: 8px;
+    min-height: 74px;
+  }
+
+  .formula-token::after {
+    max-width: 160px;
+    font-size: 0.82rem;
   }
 
   .control-row {
