@@ -245,7 +245,7 @@ export const pageHtml = String.raw`
                     <svg class="flask-glass" viewBox="0 0 260 320" focusable="false">
                       <path
                         class="flask-body"
-                        d="M105 24 H155 V112 L224 279 C231 297 219 307 199 307 H61 C41 307 29 297 36 279 L105 112 Z"
+                        d="M105 24 H155 V112 L224 279 L199 307 H61 L36 279 L105 112 Z"
                       />
                       <path class="flask-mouth" d="M96 24 H164" />
                       <path class="flask-neck" d="M105 112 H155" />
