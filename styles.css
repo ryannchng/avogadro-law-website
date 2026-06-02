@@ -410,6 +410,10 @@ p {
   gap: 16px;
 }
 
+.variable-card .eyebrow {
+  font-size: 1rem;
+}
+
 .variable-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -577,13 +581,40 @@ p {
   font-weight: 900;
 }
 
+.reaction-figure {
+  margin: 20px 0 0;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.reaction-figure img {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 18px;
+}
+
+.reaction-figure figcaption {
+  max-width: 760px;
+  color: var(--soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
 .example-card {
   display: grid;
+  grid-template-rows: auto 1fr auto;
   gap: 14px;
 }
 
 .example-card dl {
   display: grid;
+  grid-auto-rows: 1fr;
   gap: 10px;
   margin: 0;
 }
@@ -1156,10 +1187,6 @@ svg {
   min-height: auto;
 }
 
-.explanation-card {
-  margin-top: 22px;
-}
-
 /* Laws section */
 .laws-grid {
   display: grid;
@@ -1381,9 +1408,13 @@ svg {
   font-weight: 900;
 }
 
-.explanation-card p {
-  margin-bottom: 0;
+.explanation-card p:not(.eyebrow) {
+  margin-bottom: 14px;
   color: #e7e7e7;
+}
+
+.explanation-card p:not(.eyebrow):last-child {
+  margin-bottom: 0;
 }
 
 [hidden] {

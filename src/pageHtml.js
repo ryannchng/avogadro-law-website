@@ -1,3 +1,5 @@
+import combiningVolumesImg from "../assets/combining-volumes.png";
+
 export const pageHtml = String.raw`
 <main class="page-shell">
       <section id="gay-lussac" class="section law-section" aria-labelledby="gay-lussac-title">
@@ -38,6 +40,19 @@ export const pageHtml = String.raw`
             <span>Ratio: 2 : 1 : 2</span>
           </div>
         </div>
+
+        <figure class="reaction-figure">
+          <img
+            src="${combiningVolumesImg}"
+            alt="Two volumes (100 mL) of hydrogen gas plus one volume (50 mL) of oxygen gas react to form two volumes (100 mL) of water vapor, a 2:1:2 ratio."
+            loading="lazy"
+          />
+          <figcaption>
+            Reacting volumes hold the 2&thinsp;:&thinsp;1&thinsp;:&thinsp;2 ratio at constant
+            temperature and pressure: 100&nbsp;mL H<sub>2</sub> + 50&nbsp;mL O<sub>2</sub>
+            &rarr; 100&nbsp;mL H<sub>2</sub>O vapor.
+          </figcaption>
+        </figure>
       </section>
 
       <section id="core" class="section formula-section" aria-labelledby="formula-title">
@@ -111,12 +126,6 @@ export const pageHtml = String.raw`
           </div>
         </div>
 
-        <div class="combine-footer-grid">
-          <div class="card">
-            <p class="eyebrow">Extending to Mass</p>
-            <p>Those same whole numbers also represent mole ratios, so they can be extended to mass calculations using the molar mass of each gas. That requires an extra step, however, since different gases have different masses per mole.</p>
-          </div>
-        </div>
       </section>
 
       <section id="variables" class="section" aria-labelledby="variables-title">
