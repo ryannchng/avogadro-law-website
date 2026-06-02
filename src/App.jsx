@@ -13,16 +13,14 @@ export default function App() {
         <a className="site-nav__brand" href="#top">Avogadro</a>
         <div className="site-nav__links">
           <a href="#top">Home</a>
+          <a href="#gay-lussac">Gay-Lussac</a>
           <a href="#core">Core</a>
-          <a href="#laws">Laws</a>
           <a href="#ratios">Ratios</a>
           <a href="#variables">Variables</a>
-          <a href="#gay-lussac">Gay-Lussac</a>
           <a href="#connection">Connection</a>
           <a href="#stp">STP</a>
           <a href="#demo">Demo</a>
           <a href="#uses">Uses</a>
-          <a href="#history">History</a>
           <a href="#quiz">Quiz</a>
         </div>
       </nav>
