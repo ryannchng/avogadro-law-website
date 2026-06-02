@@ -250,13 +250,20 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
-function createGasParticle(index) {
+function getFillBounds(moles, height, radius = 0) {
+  const fillBottom = height * 0.972;
+  const fillTop = height * (0.972 - (moles * fillPercentPerMole) / 100);
+  return { top: fillTop + radius, bottom: fillBottom - radius };
+}
+
+function createGasParticle(index, moles) {
   const rect = flaskInterior.getBoundingClientRect();
   const width = rect.width || 260;
   const height = rect.height || 320;
   const size = 9 + (index % 4);
   const radius = size / 2;
-  const y = height * (0.14 + Math.random() * 0.75);
+  const fillBounds = getFillBounds(moles, height, radius);
+  const y = fillBounds.top + Math.random() * Math.max(fillBounds.bottom - fillBounds.top, 0);
   const bounds = getFlaskBounds(y, width, height, radius);
   const x = bounds.left + Math.random() * Math.max(bounds.right - bounds.left, 1);
   const element = document.createElement("span");
@@ -287,7 +294,7 @@ function updateParticleCount(moles) {
   const targetCount = Math.round(moles * particlesPerMole);
 
   while (gasParticles.length < targetCount) {
-    gasParticles.push(createGasParticle(gasParticles.length));
+    gasParticles.push(createGasParticle(gasParticles.length, moles));
   }
 
   while (gasParticles.length > targetCount) {
@@ -353,8 +360,9 @@ function animateGasParticles(time = performance.now()) {
     particle.x += particle.vx * dt;
     particle.y += particle.vy * dt;
 
-    const verticalBounds = getFlaskBounds(particle.y, width, height, particle.radius);
-    particle.y = clamp(particle.y, verticalBounds.top, verticalBounds.bottom);
+    const fillBounds = getFillBounds(Number(slider.value), height, particle.radius);
+    particle.homeY = clamp(particle.homeY, fillBounds.top, fillBounds.bottom);
+    particle.y = clamp(particle.y, fillBounds.top, fillBounds.bottom);
     const bounds = getFlaskBounds(particle.y, width, height, particle.radius);
 
     if (particle.x < bounds.left) {
@@ -365,11 +373,11 @@ function animateGasParticles(time = performance.now()) {
       particle.vx = -Math.abs(particle.vx) * 0.9;
     }
 
-    if (particle.y <= bounds.top) {
-      particle.y = bounds.top;
+    if (particle.y <= fillBounds.top) {
+      particle.y = fillBounds.top;
       particle.vy = Math.abs(particle.vy) * 0.9;
-    } else if (particle.y >= bounds.bottom) {
-      particle.y = bounds.bottom;
+    } else if (particle.y >= fillBounds.bottom) {
+      particle.y = fillBounds.bottom;
       particle.vy = -Math.abs(particle.vy) * 0.9;
     }
 

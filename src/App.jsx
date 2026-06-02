@@ -16,6 +16,7 @@ export default function App() {
           <a href="#top">Home</a>
           <a href="#gay-lussac">Gay-Lussac</a>
           <a href="#core">Core</a>
+          <a href="#logic">Logic</a>
           <a href="#ratios">Ratios</a>
           <a href="#variables">Variables</a>
           <a href="#stp">STP</a>

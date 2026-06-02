@@ -132,6 +132,103 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
+      <section id="logic" class="section" aria-labelledby="logic-title">
+        <div class="section-heading">
+          <p class="eyebrow">Step-by-Step Logic</p>
+          <h2 id="logic-title">How Avogadro's Law Explains Gay-Lussac's Observation</h2>
+          <p>Let's build the logic step by step.</p>
+        </div>
+
+        <div class="explain-flow">
+          <div class="steps-pair">
+            <div class="card step-card">
+              <div class="step-kicker">Step 1</div>
+              <h3>Avogadro's Key Insight</h3>
+              <p>At the same temperature and pressure, 1 litre of <em>any</em> gas contains the same number of molecules.</p>
+              <p>Let's say 1 litre = 100 molecules (simplified for illustration):</p>
+              <div class="table-scroll">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>Gas</th><th>Volume</th><th>Molecules</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>H<sub>2</sub></td><td>1 L</td><td>100</td></tr>
+                    <tr><td>O<sub>2</sub></td><td>1 L</td><td>100</td></tr>
+                    <tr><td>CO<sub>2</sub></td><td>1 L</td><td>100</td></tr>
+                    <tr><td>Ar</td><td>1 L</td><td>100</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="step-conclusion">The type of gas doesn't matter — same volume = same count.</p>
+            </div>
+
+            <div class="card step-card">
+              <div class="step-kicker">Step 2</div>
+              <h3>What This Means for Volume vs Molecules</h3>
+              <p>Because 1 L = 100 molecules, then:</p>
+              <div class="table-scroll">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>Volume</th><th>Molecules</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>1 L</td><td>100</td></tr>
+                    <tr><td>2 L</td><td>200</td></tr>
+                    <tr><td>3 L</td><td>300</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Volume and molecule count scale together perfectly. Double the volume = double the molecules. This is the direct proportionality <strong>V&thinsp;&prop;&thinsp;n</strong>.</p>
+            </div>
+          </div>
+
+          <div class="card step-card">
+            <div class="step-kicker">Step 3</div>
+            <h3>Applying This to the H<sub>2</sub> + O<sub>2</sub> Reaction</h3>
+            <div class="chem-equation">2H<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2H<sub>2</sub>O(g)</div>
+            <p>Chemically, the molecules react in a 2&thinsp;:&thinsp;1&thinsp;:&thinsp;2 ratio:</p>
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>H<sub>2</sub></th>
+                    <th>O<sub>2</sub></th>
+                    <th>H<sub>2</sub>O</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="row-label">Molecules</td>
+                    <td>200</td><td>100</td><td>200</td>
+                  </tr>
+                  <tr class="volume-row">
+                    <td class="row-label">Therefore volume</td>
+                    <td>2 L</td><td>1 L</td><td>2 L</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="step-conclusion">Because 200 molecules = 2&thinsp;L and 100 molecules = 1&thinsp;L, the volume ratio automatically becomes 2&thinsp;:&thinsp;1&thinsp;:&thinsp;2 — the same as the molecule ratio.</p>
+          </div>
+
+          <div class="core-logic-card">
+            <p class="eyebrow">The Core Logic in One Line</p>
+            <p class="core-logic-text">Since equal volumes = equal molecules, whatever ratio molecules react in, volumes must react in that same ratio.</p>
+            <div class="ratio-chain">
+              <span class="ratio-item">Molecule ratio&ensp;2 : 1 : 2</span>
+              <span class="ratio-arrow">&rarr;</span>
+              <span class="ratio-item ratio-result">Volume ratio&ensp;2 : 1 : 2 &#10003;</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Why Gay-Lussac Couldn't Explain His Own Observation</h3>
+            <p>Gay-Lussac observed the whole-number volume ratios experimentally, but he couldn't explain <em>why</em> it happened. Avogadro's Law provided the missing explanation — it's because volume and molecule count are directly linked, so one ratio always mirrors the other.</p>
+          </div>
+        </div>
+      </section>
+
       <section id="ratios" class="section combine-section" aria-labelledby="combine-title">
         <div class="card combine-shell">
           <div class="section-heading combine-heading">
