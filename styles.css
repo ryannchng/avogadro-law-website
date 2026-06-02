@@ -510,8 +510,7 @@ p {
   gap: 12px;
 }
 
-.variable-grid div,
-.example-card dl div {
+.variable-grid div {
   position: relative;
   overflow: hidden;
   min-height: 112px;
@@ -521,6 +520,19 @@ p {
   padding: 16px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.035);
+}
+
+.example-card dl div {
+  position: relative;
+  overflow: visible;
+  min-height: 112px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+  isolation: isolate;
 }
 
 .variable-grid strong {
