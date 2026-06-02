@@ -265,6 +265,11 @@ function createGasParticle(index) {
     x,
     y,
     radius,
+    idleAngle: Math.random() * Math.PI * 2,
+    idleRadius: 2 + Math.random() * 7,
+    idleSpeed: 0.6 + Math.random() * 0.8,
+    homeX: x,
+    homeY: y,
     vx: (Math.random() - 0.5) * 32,
     vy: (Math.random() - 0.5) * 32,
   };
@@ -309,11 +314,25 @@ function animateGasParticles(time = performance.now()) {
   flaskVelocity.y *= 0.93;
 
   gasParticles.forEach((particle) => {
-    const jitter = dragState.active ? 14 : 6;
+    const isIdle = !dragState.active && Math.abs(flaskVelocity.x) < 18 && Math.abs(flaskVelocity.y) < 18;
+    const jitter = dragState.active ? 14 : isIdle ? 2.5 : 6;
+    const idlePhase = time * 0.001 * particle.idleSpeed + particle.idleAngle;
+
     particle.vx += (Math.random() - 0.5) * jitter * dt;
     particle.vy += (Math.random() - 0.5) * jitter * dt;
     particle.vx += flaskVelocity.x * 0.015 * dt;
     particle.vy += flaskVelocity.y * 0.015 * dt;
+
+    if (isIdle) {
+      const idleTargetX = particle.homeX + Math.cos(idlePhase) * particle.idleRadius;
+      const idleTargetY = particle.homeY + Math.sin(idlePhase * 0.9) * particle.idleRadius;
+      particle.vx += (idleTargetX - particle.x) * 1.8 * dt;
+      particle.vy += (idleTargetY - particle.y) * 1.8 * dt;
+    } else {
+      particle.homeX = particle.x;
+      particle.homeY = particle.y;
+    }
+
     particle.vx *= 0.998;
     particle.vy *= 0.998;
     particle.x += particle.vx * dt;
