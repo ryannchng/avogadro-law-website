@@ -99,7 +99,7 @@ export const pageHtml = String.raw`
           </p>
           <ul class="key-points">
             <li>Doubling the moles doubles the volume; halving the moles halves the volume</li>
-            <li>A "molecule" here means one gas particle — whether a single atom (like argon), a diatomic molecule (like ${h2}), or larger. Only the count of particles matters, not how many atoms are inside each one</li>
+            <li>A "molecule" here means one gas particle. It could be a single atom (like argon), a diatomic molecule (like ${h2}), or larger. Only the count of particles matters, not how many atoms are inside each one</li>
             <li>The type of gas is irrelevant, as long as it behaves ideally</li>
           </ul>
           <p class="plain-callout">
