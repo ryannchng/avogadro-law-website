@@ -437,6 +437,227 @@ svg {
   margin-top: 22px;
 }
 
+/* Laws section */
+.laws-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.law-card {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
+.law-card h3 {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  margin-bottom: 0;
+}
+
+.law-badge {
+  width: fit-content;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(122, 167, 255, 0.1);
+  color: var(--accent-2);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.law-statement {
+  color: #d8e7e4;
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.example-box,
+.consequence-box {
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.example-box .eyebrow,
+.consequence-box .eyebrow {
+  margin-bottom: 12px;
+}
+
+.reaction-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.reaction-vol {
+  display: grid;
+  gap: 3px;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(114, 215, 188, 0.08);
+}
+
+.reaction-product {
+  background: rgba(122, 167, 255, 0.1);
+}
+
+.reaction-vol strong {
+  font-size: 1.55rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.reaction-product strong {
+  color: var(--accent-2);
+}
+
+.reaction-vol span {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+}
+
+.reaction-vol small {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.reaction-op {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--soft);
+}
+
+.ratio-note {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.key-points {
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.key-points li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.consequence-text {
+  margin-bottom: 14px;
+}
+
+.molar-volume-display {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900;
+}
+
+.molar-volume-display span {
+  font-size: 0.7em;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* Combine section */
+.combine-main {
+  margin-bottom: 22px;
+}
+
+.chem-equation {
+  display: inline-block;
+  padding: 13px 20px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text);
+  font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+  font-weight: 800;
+}
+
+.combine-lead {
+  color: #d8e7e4;
+  max-width: 820px;
+  margin-bottom: 0;
+}
+
+.vol-example {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.vol-box {
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(114, 215, 188, 0.08);
+}
+
+.vol-box strong {
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.vol-box--product {
+  background: rgba(122, 167, 255, 0.1);
+}
+
+.vol-box--product strong {
+  color: var(--accent-2);
+}
+
+.vol-box span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.combine-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.combine-legacy-card {
+  display: grid;
+  align-content: start;
+}
+
+.ideal-gas-display {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900;
+}
+
 .explanation-card p {
   margin-bottom: 0;
   color: #d8e7e4;
@@ -707,7 +928,9 @@ svg {
 
   .formula-section,
   .simulation-grid,
-  .simulation-panel {
+  .simulation-panel,
+  .laws-grid,
+  .combine-footer-grid {
     grid-template-columns: 1fr;
   }
 
