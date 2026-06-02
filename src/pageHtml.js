@@ -1,14 +1,61 @@
 export const pageHtml = String.raw`
 <main class="page-shell">
+      <section id="gay-lussac" class="section law-section" aria-labelledby="gay-lussac-title">
+        <div class="section-heading">
+          <p class="eyebrow">Gay-Lussac's Law of Combining Gas Volumes</p>
+          <h2 id="gay-lussac-title">Gases combine in simple volume ratios</h2>
+          <p>
+            When gases react at constant temperature and pressure, their volumes
+            react in simple whole-number ratios.
+          </p>
+        </div>
+
+        <div class="card reaction-card">
+          <div class="reaction-diagram" aria-label="Two volumes hydrogen plus one volume oxygen makes two volumes water vapor">
+            <div class="reaction-block hydrogen">
+              <span>H<sub>2</sub></span>
+              <strong>2 volumes</strong>
+            </div>
+            <div class="reaction-symbol">+</div>
+            <div class="reaction-block oxygen">
+              <span>O<sub>2</sub></span>
+              <strong>1 volume</strong>
+            </div>
+            <div class="reaction-symbol arrow">&rarr;</div>
+            <div class="reaction-product">
+              <div class="reaction-block water">
+                <span>H<sub>2</sub>O</span>
+                <strong>1 volume</strong>
+              </div>
+              <div class="reaction-block water">
+                <span>H<sub>2</sub>O</span>
+                <strong>1 volume</strong>
+              </div>
+            </div>
+          </div>
+          <div class="equation-strip">
+            <strong>2H<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2H<sub>2</sub>O(g)</strong>
+            <span>Ratio: 2 : 1 : 2</span>
+          </div>
+        </div>
+      </section>
+
       <section id="core" class="section formula-section" aria-labelledby="formula-title">
         <div>
-          <p class="eyebrow">Core Relationship</p>
-          <h2 id="formula-title">What changes, what stays controlled</h2>
+          <p class="eyebrow">Avogadro's Law</p>
+          <h2 id="formula-title">Volume is proportional to the number of molecules</h2>
           <p>
-            Avogadro's Law compares volume, <strong>V</strong>, and amount of
-            gas, <strong>n</strong>. Temperature and pressure must be held
-            constant so the relationship stays scientifically meaningful.
+            The volume of a gas is directly proportional to the number of
+            molecules — the amount of gas in moles, <strong>n</strong>. Avogadro's
+            Law compares volume, <strong>V</strong>, and <strong>n</strong>, while
+            temperature and pressure are held constant so the relationship stays
+            scientifically meaningful.
           </p>
+          <ul class="key-points">
+            <li>Doubling the moles doubles the volume; halving the moles halves the volume</li>
+            <li>A "molecule" here means one gas particle — whether a single atom (like argon), a diatomic molecule (like H<sub>2</sub>), or larger. Only the count of particles matters, not how many atoms are inside each one</li>
+            <li>The type of gas is irrelevant, as long as it behaves ideally</li>
+          </ul>
           <p class="plain-callout">
             Core idea: <strong>more moles = more volume</strong>.
             <strong>Fewer moles = less volume</strong>.
@@ -18,63 +65,6 @@ export const pageHtml = String.raw`
           <span>V &prop; n</span>
           <span>V / n = k</span>
           <span>V<sub>1</sub> / n<sub>1</sub> = V<sub>2</sub> / n<sub>2</sub></span>
-        </div>
-      </section>
-
-      <section id="laws" class="section laws-section" aria-labelledby="laws-title">
-        <div class="section-heading">
-          <p class="eyebrow">Historical Context &amp; Theory</p>
-          <h2 id="laws-title">The Laws Behind the Law</h2>
-          <p>Gay-Lussac's empirical discovery in 1808, and how Avogadro's molecular model explained it.</p>
-        </div>
-
-        <div class="laws-grid">
-          <div class="card law-card">
-            <div class="law-badge">1808</div>
-            <h3>Gay-Lussac's Law of Combining Volumes</h3>
-            <p class="law-statement">When gases react at constant temperature and pressure, their volumes are always in simple whole-number ratios.</p>
-
-            <div class="example-box">
-              <p class="eyebrow">Example</p>
-              <div class="reaction-display" aria-label="2 volumes hydrogen plus 1 volume oxygen yields 2 volumes water vapour">
-                <div class="reaction-vol">
-                  <strong>2</strong>
-                  <span>volumes</span>
-                  <small>H<sub>2</sub></small>
-                </div>
-                <span class="reaction-op" aria-hidden="true">+</span>
-                <div class="reaction-vol">
-                  <strong>1</strong>
-                  <span>volume</span>
-                  <small>O<sub>2</sub></small>
-                </div>
-                <span class="reaction-op" aria-hidden="true">&rarr;</span>
-                <div class="reaction-vol reaction-product">
-                  <strong>2</strong>
-                  <span>volumes</span>
-                  <small>H<sub>2</sub>O vapor</small>
-                </div>
-              </div>
-              <p class="ratio-note">Ratio&nbsp;&nbsp;2 : 1 : 2</p>
-            </div>
-          </div>
-
-          <div class="card law-card">
-            <h3>Avogadro's Law</h3>
-            <p class="law-statement">The volume of a gas is directly proportional to the number of molecules at constant temperature and pressure. This directly explains Gay-Lussac's observation — if equal volumes always contain equal numbers of molecules, then gases reacting in whole-number molecule ratios will naturally also react in whole-number volume ratios.</p>
-
-            <ul class="key-points">
-              <li>Doubling the moles doubles the volume; halving the moles halves the volume</li>
-              <li>A "molecule" here means one gas particle — whether a single atom (like argon), a diatomic molecule (like H<sub>2</sub>), or larger. Only the count of particles matters, not how many atoms are inside each one</li>
-              <li>The type of gas is irrelevant, as long as it behaves ideally</li>
-            </ul>
-
-            <div class="consequence-box">
-              <p class="eyebrow">Practical Consequence — Molar Volume</p>
-              <p class="consequence-text">Since equal volumes always contain equal numbers of molecules, one mole of any ideal gas at STP (0&thinsp;°C, 1&thinsp;atm) always occupies the same volume:</p>
-              <div class="molar-volume-display">22.4 L <span>/ mol</span></div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -139,46 +129,6 @@ export const pageHtml = String.raw`
             constant. Combining gas volumes also assumes constant temperature
             and pressure.
           </p>
-        </div>
-      </section>
-
-      <section id="gay-lussac" class="section law-section" aria-labelledby="gay-lussac-title">
-        <div class="section-heading">
-          <p class="eyebrow">Gay-Lussac's Law</p>
-          <h2 id="gay-lussac-title">Gases combine in simple volume ratios</h2>
-          <p>
-            When gases react at constant temperature and pressure, their volumes
-            react in simple whole-number ratios.
-          </p>
-        </div>
-
-        <div class="card reaction-card">
-          <div class="reaction-diagram" aria-label="Two volumes hydrogen plus one volume oxygen makes two volumes water vapor">
-            <div class="reaction-block hydrogen">
-              <span>H<sub>2</sub></span>
-              <strong>2 volumes</strong>
-            </div>
-            <div class="reaction-symbol">+</div>
-            <div class="reaction-block oxygen">
-              <span>O<sub>2</sub></span>
-              <strong>1 volume</strong>
-            </div>
-            <div class="reaction-symbol arrow">&rarr;</div>
-            <div class="reaction-product">
-              <div class="reaction-block water">
-                <span>H<sub>2</sub>O</span>
-                <strong>1 volume</strong>
-              </div>
-              <div class="reaction-block water">
-                <span>H<sub>2</sub>O</span>
-                <strong>1 volume</strong>
-              </div>
-            </div>
-          </div>
-          <div class="equation-strip">
-            <strong>2H<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2H<sub>2</sub>O(g)</strong>
-            <span>Ratio: 2 : 1 : 2</span>
-          </div>
         </div>
       </section>
 
@@ -410,27 +360,6 @@ export const pageHtml = String.raw`
               helps divers estimate how much breathing gas they have.
             </p>
           </article>
-        </div>
-      </section>
-
-      <section id="history" class="section history-section" aria-labelledby="history-title">
-        <div class="card history-card">
-          <p class="eyebrow">Cool Facts</p>
-          <h2 id="history-title">Avogadro's idea took time to catch on</h2>
-          <div class="fact-list">
-            <p>
-              Avogadro's ideas helped explain why gases combine in
-              whole-number volume ratios.
-            </p>
-            <p>
-              His work supported the idea that gases like hydrogen and oxygen
-              exist as diatomic molecules, H<sub>2</sub> and O<sub>2</sub>.
-            </p>
-            <p>
-              His work was not widely recognized during his lifetime, but it
-              became very important later.
-            </p>
-          </div>
         </div>
       </section>
 
