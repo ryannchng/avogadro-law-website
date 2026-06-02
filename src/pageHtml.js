@@ -201,41 +201,6 @@ export const pageHtml = String.raw`
         </div>
       </section>
 
-      <section id="connection" class="section content-grid" aria-labelledby="connection-title">
-        <div class="card explanation-card">
-          <p class="eyebrow">How They Connect</p>
-          <h2 id="connection-title">Avogadro explains Gay-Lussac</h2>
-          <p>
-            Avogadro's Law says equal gas volumes contain equal numbers of
-            particles at the same temperature and pressure. That explains why
-            gas volume ratios match the mole ratios in balanced chemical
-            equations.
-          </p>
-          <p>
-            For the water vapor reaction, the 2:1:2 ratio works for particles,
-            moles, and gas volumes.
-          </p>
-        </div>
-        <div class="card example-card">
-          <h3>Scale the ratio</h3>
-          <dl>
-            <div>
-              <dt>Start with</dt>
-              <dd>4 L ${h2}</dd>
-            </div>
-            <div>
-              <dt>You need</dt>
-              <dd>2 L ${o2}</dd>
-            </div>
-            <div>
-              <dt>You produce</dt>
-              <dd>4 L ${h2o} vapor</dd>
-            </div>
-          </dl>
-          <p>The ratio still stays <strong>2 : 1 : 2</strong>.</p>
-        </div>
-      </section>
-
       <section id="stp" class="section stp-section" aria-labelledby="stp-title">
         <div class="section-heading">
           <p class="eyebrow">Molar Volume at STP</p>

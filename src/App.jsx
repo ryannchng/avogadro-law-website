@@ -18,7 +18,6 @@ export default function App() {
           <a href="#core">Core</a>
           <a href="#ratios">Ratios</a>
           <a href="#variables">Variables</a>
-          <a href="#connection">Connection</a>
           <a href="#stp">STP</a>
           <a href="#demo">Demo</a>
           <a href="#uses">Uses</a>
