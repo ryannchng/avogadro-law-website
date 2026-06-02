@@ -11,6 +11,8 @@ const graphLine = document.querySelector("#graphLine");
 const graphPoints = document.querySelector("#graphPoints");
 const graphTicks = document.querySelector("#graphTicks");
 const currentGraphPoint = document.querySelector("#currentGraphPoint");
+const guideLineX = document.querySelector("#guideLineX");
+const guideLineY = document.querySelector("#guideLineY");
 const quizTrack = document.querySelector("#quizTrack");
 const quizProgress = document.querySelector("#quizProgress");
 const quizProgressBar = document.querySelector("#quizProgressBar");
@@ -113,7 +115,7 @@ const quizQuestions = [
   },
   {
     question:
-      "For 2H2(g) + O2(g) → 2H2O(g), how much O2 is needed for 4 L of H2 at the same temperature and pressure?",
+      "For 2 H2 (g) + O2 (g) → 2 H2O (g), how much O2 is needed for 4 L of H2 at the same temperature and pressure?",
     answers: ["1 L O2", "2 L O2", "4 L O2", "8 L O2"],
     correctIndex: 1,
     explanation:
@@ -136,6 +138,8 @@ let gasParticles = [];
 let particleAnimationId;
 let lastParticleFrame = performance.now();
 let gasParticlesVisible = true;
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let prefersReducedMotion = reducedMotionQuery.matches;
 let flaskOffset = { x: 0, y: 0 };
 let flaskVelocity = { x: 0, y: 0 };
 let dragState = {
@@ -282,6 +286,13 @@ function updateParticleCount(moles) {
   }
 }
 
+function renderParticlePositions() {
+  gasParticles.forEach((particle) => {
+    particle.element.style.setProperty("--particle-x", `${particle.x - particle.radius}px`);
+    particle.element.style.setProperty("--particle-y", `${particle.y - particle.radius}px`);
+  });
+}
+
 function nudgeParticles(velocityX, velocityY) {
   const impulseX = clamp(velocityX * 0.018, -18, 18);
   const impulseY = clamp(velocityY * 0.018, -18, 18);
@@ -346,6 +357,11 @@ function animateGasParticles(time = performance.now()) {
 }
 
 function startGasParticleAnimation() {
+  if (prefersReducedMotion) {
+    renderParticlePositions();
+    return;
+  }
+
   if (particleAnimationId) return;
 
   gasParticlesVisible = true;
@@ -451,7 +467,21 @@ function updateSimulation() {
   gasFill.style.height = `${fillPercent}%`;
   currentGraphPoint.setAttribute("cx", graphPosition.x);
   currentGraphPoint.setAttribute("cy", graphPosition.y);
+
+  guideLineX.setAttribute("x1", graphPosition.x);
+  guideLineX.setAttribute("y1", graphPosition.y);
+  guideLineX.setAttribute("x2", graphPosition.x);
+  guideLineX.setAttribute("y2", 300);
+  guideLineY.setAttribute("x1", 70);
+  guideLineY.setAttribute("y1", graphPosition.y);
+  guideLineY.setAttribute("x2", graphPosition.x);
+  guideLineY.setAttribute("y2", graphPosition.y);
+
   updateParticleCount(moles);
+
+  if (prefersReducedMotion) {
+    renderParticlePositions();
+  }
 }
 
 function getScore() {
@@ -627,6 +657,17 @@ nextQuestion.addEventListener("click", () => {
 
 resetQuiz.addEventListener("click", resetQuizState);
 resetResults.addEventListener("click", resetQuizState);
+
+reducedMotionQuery.addEventListener("change", (event) => {
+  prefersReducedMotion = event.matches;
+
+  if (prefersReducedMotion) {
+    stopGasParticleAnimation();
+    renderParticlePositions();
+  } else {
+    startGasParticleAnimation();
+  }
+});
 
 drawGraph();
 setupFlaskDrag();

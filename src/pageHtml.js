@@ -45,11 +45,7 @@ export const pageHtml = String.raw`
           <p class="eyebrow">Avogadro's Law</p>
           <h2 id="formula-title">Volume is proportional to the number of molecules</h2>
           <p>
-            The volume of a gas is directly proportional to the number of
-            molecules — the amount of gas in moles, <strong>n</strong>. Avogadro's
-            Law compares volume, <strong>V</strong>, and <strong>n</strong>, while
-            temperature and pressure are held constant so the relationship stays
-            scientifically meaningful.
+            The volume of a gas is directly proportional to the number of molecules at constant temperature and pressure. This directly explains Gay-Lussac's observation. If equal volumes always contain equal numbers of molecules, then gases reacting in whole-number molecule ratios will naturally also react in whole-number volume ratios.
           </p>
           <ul class="key-points">
             <li>Doubling the moles doubles the volume; halving the moles halves the volume</li>
@@ -102,33 +98,28 @@ export const pageHtml = String.raw`
             <p class="eyebrow">Extending to Mass</p>
             <p>Those same whole numbers also represent mole ratios, so they can be extended to mass calculations using the molar mass of each gas. That requires an extra step, however, since different gases have different masses per mole.</p>
           </div>
-          <div class="card combine-legacy-card">
-            <p class="eyebrow">Historical Legacy</p>
-            <p>Together, these two laws laid critical groundwork for modern chemistry and the development of the ideal gas law:</p>
-            <div class="ideal-gas-display">PV = nRT</div>
-          </div>
         </div>
       </section>
 
-      <section id="variables" class="section content-grid" aria-labelledby="variables-title">
+      <section id="variables" class="section" aria-labelledby="variables-title">
         <div class="card variable-card">
           <p class="eyebrow">Gas Variables</p>
           <h2 id="variables-title">The four gas variables</h2>
-          <div class="variable-grid" aria-label="Four gas variables">
-            <div><strong>P</strong><span>pressure</span></div>
-            <div><strong>V</strong><span>volume</span></div>
-            <div><strong>T</strong><span>temperature</span></div>
-            <div><strong>n</strong><span>amount of gas in moles</span></div>
+          <div class="variable-grid" aria-label="Four gas variables and their acceptable units">
+            <div><strong>P</strong><span>pressure</span><span class="var-unit">kPa &middot; atm &middot; mmHg</span></div>
+            <div><strong>V</strong><span>volume</span><span class="var-unit">L &middot; mL</span></div>
+            <div><strong>T</strong><span>temperature</span><span class="var-unit">K &middot; &deg;C</span></div>
+            <div><strong>n</strong><span>amount of gas</span><span class="var-unit">mol</span></div>
           </div>
-        </div>
-        <div class="card explanation-card compact-card">
-          <h3>Why lowercase n matters</h3>
-          <p>
-            In gas laws, <strong>n</strong> is the standard symbol for moles.
-            Avogadro's Law focuses on the V-n relationship while P and T stay
-            constant. Combining gas volumes also assumes constant temperature
-            and pressure.
-          </p>
+
+          <div class="conversions">
+            <p class="eyebrow">Conversions</p>
+            <ul class="conversion-list">
+              <li><span>Pressure</span><strong>1 atm = 101.325 kPa = 760 mmHg</strong></li>
+              <li><span>Volume</span><strong>1 L = 1000 mL = 1000 cm<sup>3</sup></strong></li>
+              <li><span>Temperature</span><strong>T(K) = T(&deg;C) + 273.15</strong></li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -274,6 +265,8 @@ export const pageHtml = String.raw`
                   <text class="axis-label" x="270" y="345">moles of gas, n</text>
                   <text class="axis-label y-label" x="18" y="180">volume, V (L)</text>
                   <g id="graphTicks"></g>
+                  <line id="guideLineX" class="guide-line" x1="0" y1="0" x2="0" y2="0"></line>
+                  <line id="guideLineY" class="guide-line" x1="0" y1="0" x2="0" y2="0"></line>
                   <polyline id="graphLine" class="graph-line" points=""></polyline>
                   <g id="graphPoints"></g>
                   <circle id="currentGraphPoint" class="current-point" r="9"></circle>
@@ -295,7 +288,7 @@ export const pageHtml = String.raw`
               id="molesSlider"
               min="0.5"
               max="5"
-              step="0.5"
+              step="0.1"
               value="1"
             />
           </div>
