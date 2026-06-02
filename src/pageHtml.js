@@ -159,7 +159,7 @@ export const pageHtml = String.raw`
                   </tbody>
                 </table>
               </div>
-              <p class="step-conclusion">The type of gas doesn't matter — same volume = same count.</p>
+              <p class="step-conclusion">The type of gas doesn't matter.</p>
             </div>
 
             <div class="card step-card">
@@ -178,7 +178,7 @@ export const pageHtml = String.raw`
                   </tbody>
                 </table>
               </div>
-              <p>Volume and molecule count scale together perfectly. Double the volume = double the molecules. This is the direct proportionality <strong>V&thinsp;&prop;&thinsp;n</strong>.</p>
+              <p>Volume and molecule count scale together perfectly. Double the volume = double the molecules.<strong>V&thinsp;&prop;&thinsp;n</strong>.</p>
             </div>
           </div>
 
