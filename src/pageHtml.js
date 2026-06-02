@@ -216,12 +216,7 @@ export const pageHtml = String.raw`
             <div>
               <p class="eyebrow">Interactive Simulation</p>
               <h2 id="simulation-title">Interactive Avogadro's Law Demo</h2>
-              <p class="sim-subtitle">
-                Change the amount of gas and watch volume increase while
-                temperature and pressure stay constant.
-              </p>
             </div>
-            <span class="law-chip">V = n &times; 24.5 L at 298 K</span>
           </div>
 
           <div class="simulation-panel">
@@ -249,6 +244,7 @@ export const pageHtml = String.raw`
 
             <div class="graph-card">
               <h3>Moles vs. Volume</h3>
+              <span class="law-chip">V = n &times; 24.5 L at 298 K</span>
               <div class="graph-wrap">
                 <svg
                   id="avogadroGraph"
@@ -272,9 +268,6 @@ export const pageHtml = String.raw`
                   <circle id="currentGraphPoint" class="current-point" r="9"></circle>
                 </svg>
               </div>
-              <p class="graph-caption">
-                A straight line shows that V and n increase together.
-              </p>
             </div>
           </div>
 

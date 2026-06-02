@@ -219,27 +219,28 @@ function drawGraph() {
 
 function getFlaskBounds(y, width, height, radius = 5) {
   const normalizedY = y / height;
+  const edgeInset = 4;
   let leftRatio;
   let rightRatio;
 
-  if (normalizedY <= 0.34) {
-    leftRatio = 0.405;
-    rightRatio = 0.595;
+  if (normalizedY <= 0.35) {
+    leftRatio = 0.42;
+    rightRatio = 0.58;
   } else if (normalizedY <= 0.87) {
-    const t = (normalizedY - 0.34) / 0.53;
-    leftRatio = 0.405 + (0.13 - 0.405) * t;
-    rightRatio = 0.595 + (0.87 - 0.595) * t;
+    const t = (normalizedY - 0.35) / 0.52;
+    leftRatio = 0.42 + (0.14 - 0.42) * t;
+    rightRatio = 0.58 + (0.86 - 0.58) * t;
   } else {
-    const t = Math.min((normalizedY - 0.87) / 0.085, 1);
-    leftRatio = 0.14 + (0.22 - 0.14) * t;
-    rightRatio = 0.86 + (0.78 - 0.86) * t;
+    const t = Math.min((normalizedY - 0.87) / 0.088, 1);
+    leftRatio = 0.14 + (0.235 - 0.14) * t;
+    rightRatio = 0.86 + (0.765 - 0.86) * t;
   }
 
   return {
-    left: leftRatio * width + radius,
-    right: rightRatio * width - radius,
-    top: 0.075 * height + radius,
-    bottom: 0.94 * height - radius,
+    left: leftRatio * width + radius + edgeInset,
+    right: rightRatio * width - radius - edgeInset,
+    top: 0.085 * height + radius + edgeInset,
+    bottom: 0.958 * height - radius - edgeInset,
   };
 }
 
@@ -268,6 +269,11 @@ function createGasParticle(index) {
     x,
     y,
     radius,
+    idleAngle: Math.random() * Math.PI * 2,
+    idleRadius: 2 + Math.random() * 7,
+    idleSpeed: 0.6 + Math.random() * 0.8,
+    homeX: x,
+    homeY: y,
     vx: (Math.random() - 0.5) * 32,
     vy: (Math.random() - 0.5) * 32,
   };
@@ -319,11 +325,25 @@ function animateGasParticles(time = performance.now()) {
   flaskVelocity.y *= 0.93;
 
   gasParticles.forEach((particle) => {
-    const jitter = dragState.active ? 14 : 6;
+    const isIdle = !dragState.active && Math.abs(flaskVelocity.x) < 18 && Math.abs(flaskVelocity.y) < 18;
+    const jitter = dragState.active ? 14 : isIdle ? 2.5 : 6;
+    const idlePhase = time * 0.001 * particle.idleSpeed + particle.idleAngle;
+
     particle.vx += (Math.random() - 0.5) * jitter * dt;
     particle.vy += (Math.random() - 0.5) * jitter * dt;
     particle.vx += flaskVelocity.x * 0.015 * dt;
     particle.vy += flaskVelocity.y * 0.015 * dt;
+
+    if (isIdle) {
+      const idleTargetX = particle.homeX + Math.cos(idlePhase) * particle.idleRadius;
+      const idleTargetY = particle.homeY + Math.sin(idlePhase * 0.9) * particle.idleRadius;
+      particle.vx += (idleTargetX - particle.x) * 1.8 * dt;
+      particle.vy += (idleTargetY - particle.y) * 1.8 * dt;
+    } else {
+      particle.homeX = particle.x;
+      particle.homeY = particle.y;
+    }
+
     particle.vx *= 0.998;
     particle.vy *= 0.998;
     particle.x += particle.vx * dt;
