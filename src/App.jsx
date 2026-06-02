@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import DotPattern from "./components/ui/dot-pattern-1.jsx";
 import { Component as TurbulentFlow } from "./components/ui/turbulent-flow.jsx";
 import { pageHtml } from "./pageHtml.js";
 
@@ -27,6 +28,14 @@ export default function App() {
         </div>
       </nav>
       <TurbulentFlow className="landing-hero">
+        <DotPattern
+          width={14}
+          height={14}
+          cx={1}
+          cy={1}
+          cr={0.42}
+          className="landing-dot-pattern"
+        />
         <div id="top" className="landing-hero__copy">
           <p className="eyebrow">SCH3U Gas Laws Project</p>
           <h1>Avogadro&apos;s Law</h1>

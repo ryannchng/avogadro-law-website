@@ -215,27 +215,28 @@ function drawGraph() {
 
 function getFlaskBounds(y, width, height, radius = 5) {
   const normalizedY = y / height;
+  const edgeInset = 4;
   let leftRatio;
   let rightRatio;
 
-  if (normalizedY <= 0.34) {
-    leftRatio = 0.405;
-    rightRatio = 0.595;
+  if (normalizedY <= 0.35) {
+    leftRatio = 0.42;
+    rightRatio = 0.58;
   } else if (normalizedY <= 0.87) {
-    const t = (normalizedY - 0.34) / 0.53;
-    leftRatio = 0.405 + (0.13 - 0.405) * t;
-    rightRatio = 0.595 + (0.87 - 0.595) * t;
+    const t = (normalizedY - 0.35) / 0.52;
+    leftRatio = 0.42 + (0.14 - 0.42) * t;
+    rightRatio = 0.58 + (0.86 - 0.58) * t;
   } else {
-    const t = Math.min((normalizedY - 0.87) / 0.085, 1);
-    leftRatio = 0.14 + (0.22 - 0.14) * t;
-    rightRatio = 0.86 + (0.78 - 0.86) * t;
+    const t = Math.min((normalizedY - 0.87) / 0.088, 1);
+    leftRatio = 0.14 + (0.235 - 0.14) * t;
+    rightRatio = 0.86 + (0.765 - 0.86) * t;
   }
 
   return {
-    left: leftRatio * width + radius,
-    right: rightRatio * width - radius,
-    top: 0.075 * height + radius,
-    bottom: 0.94 * height - radius,
+    left: leftRatio * width + radius + edgeInset,
+    right: rightRatio * width - radius - edgeInset,
+    top: 0.085 * height + radius + edgeInset,
+    bottom: 0.958 * height - radius - edgeInset,
   };
 }
 
