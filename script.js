@@ -48,6 +48,18 @@ const quizQuestions = [
       "Avogadro's Law relates volume and moles when temperature and pressure are constant.",
   },
   {
+    question: "What does Gay-Lussac's Law of Combining Volumes say about reacting gases?",
+    answers: [
+      "Their masses are always equal",
+      "Their volumes react in simple whole-number ratios",
+      "Their temperatures must always double",
+      "Their pressures do not affect any gas reaction",
+    ],
+    correctIndex: 1,
+    explanation:
+      "At constant temperature and pressure, reacting gas volumes follow simple whole-number ratios.",
+  },
+  {
     question:
       "If the number of moles of gas doubles, what happens to volume, assuming temperature and pressure stay constant?",
     answers: ["It halves", "It doubles", "It stays the same", "It becomes zero"],
@@ -76,6 +88,18 @@ const quizQuestions = [
       "Temperature and pressure must stay constant so volume changes can be linked only to the number of moles.",
   },
   {
+    question: "At STP, what volume does 1 mole of an ideal gas occupy?",
+    answers: [
+      "Approximately 22.4 L",
+      "Exactly 1.0 L for every gas",
+      "Approximately 24.5 L at 0°C",
+      "It depends only on the gas color",
+    ],
+    correctIndex: 0,
+    explanation:
+      "At STP, 0°C and 1 atm, 1 mole of an ideal gas takes up approximately 22.4 L.",
+  },
+  {
     question: "Why does adding gas to a balloon make it expand?",
     answers: [
       "The gas particles become heavier",
@@ -86,6 +110,14 @@ const quizQuestions = [
     correctIndex: 2,
     explanation:
       "Adding gas increases the number of particles, so the gas occupies more volume if temperature and pressure are roughly constant.",
+  },
+  {
+    question:
+      "For 2H2(g) + O2(g) → 2H2O(g), how much O2 is needed for 4 L of H2 at the same temperature and pressure?",
+    answers: ["1 L O2", "2 L O2", "4 L O2", "8 L O2"],
+    correctIndex: 1,
+    explanation:
+      "The volume ratio is 2:1:2, so 4 L of H2 needs 2 L of O2 and produces 4 L of water vapor.",
   },
   {
     question:
@@ -214,7 +246,7 @@ function createGasParticle(index) {
   const rect = flaskInterior.getBoundingClientRect();
   const width = rect.width || 260;
   const height = rect.height || 320;
-  const size = 8 + (index % 4);
+  const size = 9 + (index % 4);
   const radius = size / 2;
   const y = height * (0.14 + Math.random() * 0.75);
   const bounds = getFlaskBounds(y, width, height, radius);
@@ -231,13 +263,13 @@ function createGasParticle(index) {
     x,
     y,
     radius,
-    vx: (Math.random() - 0.5) * 44,
-    vy: (Math.random() - 0.5) * 44,
+    vx: (Math.random() - 0.5) * 32,
+    vy: (Math.random() - 0.5) * 32,
   };
 }
 
 function updateParticleCount(moles) {
-  const targetCount = Math.round(moles * 10);
+  const targetCount = 12 + Math.round(moles * 10);
 
   while (gasParticles.length < targetCount) {
     gasParticles.push(createGasParticle(gasParticles.length));
@@ -270,7 +302,7 @@ function animateGasParticles(time = performance.now()) {
   flaskVelocity.y *= 0.93;
 
   gasParticles.forEach((particle) => {
-    const jitter = dragState.active ? 18 : 10;
+    const jitter = dragState.active ? 14 : 6;
     particle.vx += (Math.random() - 0.5) * jitter * dt;
     particle.vy += (Math.random() - 0.5) * jitter * dt;
     particle.vx += flaskVelocity.x * 0.015 * dt;
@@ -365,7 +397,7 @@ function setupFlaskDrag() {
 function updateSimulation() {
   const moles = Number(slider.value);
   const volume = moles * molarVolume;
-  const fillPercent = 16 + ((moles - 0.5) / 4.5) * 78;
+  const fillPercent = 18 + ((moles - 0.5) / 4.5) * 66;
   const graphPosition = getGraphPosition(moles, volume);
 
   molesOutput.textContent = formatMoles(moles);
