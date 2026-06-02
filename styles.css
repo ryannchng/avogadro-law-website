@@ -677,16 +677,14 @@ p {
 .flask-interior {
   overflow: hidden;
   clip-path: polygon(
-    40.5% 7.5%,
-    59.5% 7.5%,
-    59.5% 34%,
-    87% 87%,
-    83% 93%,
-    78% 95.5%,
-    22% 95.5%,
-    17% 93%,
-    13% 87%,
-    40.5% 34%
+    42% 8.5%,
+    58% 8.5%,
+    58% 35%,
+    86% 87%,
+    76.5% 95.8%,
+    23.5% 95.8%,
+    14% 87%,
+    42% 35%
   );
   background: rgba(0, 0, 0, 0.58);
 }
@@ -699,8 +697,10 @@ p {
 
 .flask-body {
   fill: rgba(245, 245, 245, 0.12);
-  stroke: none;
-  stroke-linejoin: round;
+  stroke: rgba(245, 245, 245, 0.16);
+  stroke-width: 2;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 5;
 }
 
 .flask-mouth,
@@ -708,7 +708,7 @@ p {
 .flask-shine {
   fill: none;
   stroke: none;
-  stroke-linecap: round;
+  stroke-linecap: butt;
 }
 
 .flask-mouth {
